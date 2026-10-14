@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#260d19">
+<title>A Little Surprise for Nicole ♥</title>
+<style>
+  :root {
+    --bg:#260d19; --panel:#3a1728; --rose:#c43d60;
+    --rose2:#e66b86; --cream:#fff4e9; --gold:#e0bb80;
+    --muted:#f3cbd5;
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; min-height:100vh; color:var(--cream);
+    background:radial-gradient(ellipse at top, #542137 0%, var(--bg) 62%);
+    font-family:Georgia, "Times New Roman", serif;
+    display:flex; align-items:center; justify-content:center;
+    padding:22px 14px; overflow-x:hidden;
+  }
+  #hearts { position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:0; }
+  .heart {
+    position:absolute; bottom:-45px; color:#f4a9bd; opacity:.7;
+    animation:floatUp linear forwards; text-shadow:0 0 12px #e66b8650;
+  }
+  @keyframes floatUp {
+    from { transform:translateY(0) rotate(0deg); opacity:0; }
+    12% { opacity:.7; }
+    to { transform:translateY(-115vh) rotate(28deg); opacity:0; }
+  }
+  .wrap { position:relative; z-index:1; width:min(100%,650px); }
+  .card {
+    background:linear-gradient(145deg, #421a2d, #301120);
+    border:1px solid var(--gold); border-radius:22px;
+    padding:clamp(22px,5vw,42px);
+    box-shadow:0 20px 70px #0007, inset 0 0 0 5px #ffffff05;
+    text-align:center;
+  }
+  .eyebrow { color:var(--gold); letter-spacing:.19em; font:700 .76rem Arial,sans-serif; }
+  h1 { font-size:clamp(2.2rem,8vw,3.4rem); margin:14px 0 8px; color:var(--cream); font-weight:normal; }
+  .subtitle { color:var(--muted); font-style:italic; font-size:1.15rem; }
+  .envelope { font-size:clamp(4.5rem,18vw,7rem); margin:18px 0 8px; filter:drop-shadow(0 8px 12px #0004); }
+  .hint { color:#f3cbd5; font: .95rem Arial,sans-serif; line-height:1.6; }
+  input {
+    display:block; width:min(100%,360px); margin:20px auto 12px;
+    padding:14px 16px; border-radius:11px; border:1px solid var(--gold);
+    background:#fff4e9; color:#301120; font-size:1rem; text-align:center;
+    outline:none;
+  }
+  input:focus { box-shadow:0 0 0 3px #e66b8640; }
+  button {
+    border:0; border-radius:999px; padding:13px 22px; cursor:pointer;
+    background:linear-gradient(135deg,var(--rose2),var(--rose));
+    color:white; font:700 1rem Arial,sans-serif;
+    box-shadow:0 7px 20px #c43d6040; transition:transform .18s,filter .18s;
+  }
+  button:hover { transform:translateY(-2px); filter:brightness(1.08); }
+  button:focus-visible { outline:3px solid var(--gold); outline-offset:3px; }
+  .status { min-height:24px; color:var(--muted); font:italic .9rem Arial,sans-serif; margin-top:13px; }
+  .hidden { display:none !important; }
+  #letterCard { text-align:left; animation:reveal .9s ease both; }
+  #letterCard .center { text-align:center; }
+  .letterText { white-space:pre-line; font-size:clamp(1rem,3.4vw,1.12rem); line-height:1.85; color:var(--cream); }
+  .signature { color:var(--gold); font-size:1.25rem; font-style:italic; text-align:right; margin-top:22px; }
+  .controls { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:24px; }
+  .secondary { background:transparent; border:1px solid var(--gold); box-shadow:none; }
+  footer { text-align:center; color:var(--gold); font-style:italic; margin-top:18px; font-size:.95rem; }
+  .burst { animation:burst .7s ease-out; }
+  @keyframes reveal {
+    from { opacity:0; transform:translateY(22px) scale(.97); }
+    to { opacity:1; transform:translateY(0) scale(1); }
+  }
+  @keyframes burst {
+    0% { transform:scale(.96); }
+    45% { transform:scale(1.025); }
+    100% { transform:scale(1); }
+  }
+  @media (prefers-reduced-motion:reduce) {
+    *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+  }
+</style>
+</head>
+<body>
+<div id="hearts" aria-hidden="true"></div>
+<main class="wrap">
+  <section id="welcome" class="card">
+    <div class="eyebrow">A LITTLE SURPRISE</div>
+    <h1>For My Love</h1>
+    <div class="subtitle">♥ Just for Nicole ♥</div>
+    <div class="envelope" aria-hidden="true">💌</div>
+    <p class="hint">A little message, made especially for you.</p>
+    <form id="unlockForm">
+      <label class="hint" for="password">Enter our secret password</label>
+      <input id="password" type="password" autocomplete="off" placeholder="Your secret password" required>
+      <button id="unlockButton" type="submit">Unlock My Letter ♥</button>
+    </form>
+    <div id="status" class="status" role="status" aria-live="polite">Only you know the secret.</div>
+  </section>
+
+  <section id="letterCard" class="card hidden">
+    <div class="center eyebrow">♡ A LETTER FROM THE HEART ♡</div>
+    <h1 class="center" style="font-size:clamp(2rem,7vw,2.8rem)">My Dearest Nicole,</h1>
+    <div class="letterText">I made this little surprise just for you.
+
+Sometimes, words cannot fully explain how much someone means to us. But I still want to remind you that you are such a special part of my life.
+
+Your smile can brighten an ordinary day, and the little moments we share become memories I want to keep close to my heart.
+
+Thank you for being you, Nicole. I hope you always remember that you deserve kindness, happiness, and a love that makes you feel appreciated for who you are.
+
+No matter how busy our days become, I hope we keep making beautiful memories together. There are still so many little moments I look forward to sharing with you.
+
+You are someone truly special to me. And if this little letter makes you smile, then it has already done its job. ♥</div>
+    <div class="signature">With all my love, ♥<br><strong>Kurt</strong></div>
+    <div class="controls">
+      <button id="musicButton" type="button">♫ Play Romantic Melody</button>
+      <button id="againButton" class="secondary" type="button">Read Again ♥</button>
+    </div>
+  </section>
+  <footer>Made with love, just for you ♥</footer>
+</main>
+<script>
+  // Personalize these values if you want to change the surprise.
+  const SECRET_PASSWORD = "monicaandrachel";
+
+  const hearts = document.getElementById("hearts");
+  const welcome = document.getElementById("welcome");
+  const letterCard = document.getElementById("letterCard");
+  const passwordInput = document.getElementById("password");
+  const status = document.getElementById("status");
+  const unlockButton = document.getElementById("unlockButton");
+  let audioContext = null;
+  let musicTimer = null;
+  let noteIndex = 0;
+
+  function makeHeart(burst = false) {
+    const heart = document.createElement("span");
+    heart.className = "heart";
+    heart.textContent = ["♥", "♡", "❤"][Math.floor(Math.random() * 3)];
+    heart.style.left = (burst ? 35 + Math.random() * 30 : Math.random() * 100) + "%";
+    heart.style.fontSize = (12 + Math.random() * (burst ? 26 : 18)) + "px";
+    heart.style.animationDuration = (burst ? 2.2 : 7 + Math.random() * 8) + "s";
+    heart.style.animationDelay = burst ? "0s" : (Math.random() * 3) + "s";
+    hearts.appendChild(heart);
+    setTimeout(() => heart.remove(), burst ? 2500 : 16000);
+  }
+  for (let i = 0; i < 24; i++) {
+    setTimeout(() => makeHeart(), i * 260);
+  }
+  setInterval(() => makeHeart(), 480);
+
+  function heartBurst() {
+    for (let i = 0; i < 24; i++) setTimeout(() => makeHeart(true), i * 35);
+  }
+
+  document.getElementById("unlockForm").addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (passwordInput.value === SECRET_PASSWORD) {
+      unlockButton.disabled = true;
+      unlockButton.textContent = "Opening your surprise... ♥";
+      status.textContent = "A little love is on its way...";
+      welcome.classList.add("burst");
+      setTimeout(() => {
+        welcome.classList.add("hidden");
+        letterCard.classList.remove("hidden");
+        letterCard.classList.add("burst");
+        heartBurst();
+        unlockButton.disabled = false;
+        passwordInput.value = "";
+        window.scrollTo({top: 0, behavior: "smooth"});
+      }, 1100);
+    } else {
+      status.textContent = "Not quite, my love. Try again. ♥";
+      passwordInput.value = "";
+      passwordInput.focus();
+    }
+  });
+
+  document.getElementById("againButton").addEventListener("click", () => {
+    stopMusic();
+    letterCard.classList.add("hidden");
+    letterCard.classList.remove("burst");
+    welcome.classList.remove("hidden", "burst");
+    status.textContent = "Only you know the secret.";
+    window.scrollTo({top: 0, behavior: "smooth"});
+  });
+
+  // A gentle melody synthesized in the browser; no audio file is needed.
+  const notes = [523.25, 659.25, 783.99, 659.25, 587.33, 698.46, 880, 698.46,
+                 523.25, 659.25, 783.99, 1046.5, 880, 783.99, 659.25, 523.25];
+
+  function playNote() {
+    if (!audioContext) return;
+    const now = audioContext.currentTime;
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    oscillator.type = "sine";
+    oscillator.frequency.value = notes[noteIndex % notes.length];
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(0.09, now + 0.04);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.31);
+    oscillator.connect(gain);
+    gain.connect(audioContext.destination);
+    oscillator.start(now);
+    oscillator.stop(now + 0.33);
+    noteIndex++;
+  }
+
+  async function toggleMusic() {
+    const button = document.getElementById("musicButton");
+    if (musicTimer) {
+      stopMusic();
+      return;
+    }
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) throw new Error("Audio is not supported in this browser.");
+      if (!audioContext) audioContext = new AudioCtx();
+      if (audioContext.state === "suspended") await audioContext.resume();
+      playNote();
+      musicTimer = setInterval(playNote, 370);
+      button.textContent = "♫ Stop Romantic Melody";
+    } catch (error) {
+      status.textContent = "Your browser could not start the melody. Please try again.";
+    }
+  }
+
+  function stopMusic() {
+    if (musicTimer) clearInterval(musicTimer);
+    musicTimer = null;
+    const button = document.getElementById("musicButton");
+    if (button) button.textContent = "♫ Play Romantic Melody";
+    if (audioContext && audioContext.state === "running") {
+      // Leave the audio context available for the next user-initiated play.
+    }
+  }
+  document.getElementById("musicButton").addEventListener("click", toggleMusic);
+</script>
+</body>
+</html>
